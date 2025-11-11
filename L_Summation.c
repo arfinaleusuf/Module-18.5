@@ -1,13 +1,13 @@
 #include <stdio.h>
-void sum(int a[], int n, int i, int total)
+void sum(int a[], int n, int i, long long int* p)
 {
-    int total = 0 ;
-    if (i == 4)
+    if (i == n)
     {
         return;
     }
-    sum(a, n, i + 1,&total);
-    int total = total + a[i];
+    sum(a, n, i + 1,p);
+    *p = *p + a[i];
+    
 }
 int main()
 {
@@ -18,8 +18,8 @@ int main()
     {
         scanf("%d", &a[i]);
     }
-    int total = 0;
+    long long int total = 0;
     sum(a, n, 0,&total);
-    printf("%d",total);
+    printf("%lld",total);
     return 0;
 }
